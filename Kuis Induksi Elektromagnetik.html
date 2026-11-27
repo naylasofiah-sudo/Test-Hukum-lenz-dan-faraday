@@ -1,0 +1,363 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kuis Induksi Elektromagnetik</title>
+<style>
+:root{--bg:#f3f8ff;--card:#fff;--ink:#1b2a41;--mute:#5a6b85;--line:#d5e1f2;--pri:#2f6fed;--pri-ink:#fff;--ok:#1a9a5b;--okbg:#e4f7ec;--mid:#b87500;--midbg:#fff3d6;--bad:#d63b4b;--badbg:#fde8ea;--acc:#7a4fe0;--fs:16px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1727;--card:#182338;--ink:#e8eefb;--mute:#9db0cf;--line:#2c3c5a;--pri:#6c9bff;--pri-ink:#0b1220;--ok:#4cd08a;--okbg:#12362a;--mid:#f0b63c;--midbg:#3a2f12;--bad:#ff7b88;--badbg:#3d1a20;--acc:#a98cff}}
+:root[data-theme="dark"]{--bg:#0f1727;--card:#182338;--ink:#e8eefb;--mute:#9db0cf;--line:#2c3c5a;--pri:#6c9bff;--pri-ink:#0b1220;--ok:#4cd08a;--okbg:#12362a;--mid:#f0b63c;--midbg:#3a2f12;--bad:#ff7b88;--badbg:#3d1a20;--acc:#a98cff}
+html[data-contrast="1"]{--bg:#000;--card:#000;--ink:#fff;--mute:#fff;--line:#fff;--pri:#ffe600;--pri-ink:#000;--ok:#00ff7f;--okbg:#000;--mid:#ffe600;--midbg:#000;--bad:#ff6b6b;--badbg:#000;--acc:#00e5ff}
+html[data-contrast="1"] .card,html[data-contrast="1"] .opt,html[data-contrast="1"] button,html[data-contrast="1"] input,html[data-contrast="1"] select{border-width:2px}
+*{box-sizing:border-box}
+html{font-size:var(--fs)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:12px 16px 60px}
+header.top{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:8px 0}
+.brand{font-weight:800;font-size:1.15rem;display:flex;gap:8px;align-items:center}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+button,.btn{font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:8px 14px;min-height:42px}
+button:hover{border-color:var(--pri)}
+button:focus-visible,input:focus-visible,select:focus-visible,.opt:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+button.pri{background:var(--pri);color:var(--pri-ink);border-color:var(--pri);font-weight:700}
+button.ghost{background:transparent}
+button.danger{color:var(--bad);border-color:var(--bad)}
+button:disabled{opacity:.5;cursor:not-allowed}
+.small{min-height:34px;padding:4px 10px;font-size:.9rem}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:18px;margin:12px 0}
+h1{font-size:1.7rem;margin:.2em 0}h2{font-size:1.3rem;margin:.2em 0 .5em}h3{font-size:1.05rem;margin:.2em 0}
+.mute{color:var(--mute)}
+label{display:block;font-weight:600;margin:10px 0 4px}
+input,select,textarea{font:inherit;width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);min-height:44px}
+.grid{display:grid;gap:12px}.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}.g2{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.test{text-align:left;padding:16px;border-radius:16px;display:block;width:100%}
+.test .ic{font-size:2rem}
+.test.sel{border-color:var(--pri);box-shadow:0 0 0 3px color-mix(in srgb,var(--pri) 30%,transparent)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.sp{justify-content:space-between}
+.tag{display:inline-block;font-size:.78rem;padding:2px 9px;border-radius:99px;border:1.5px solid var(--line);color:var(--mute)}
+.bar{height:10px;background:var(--line);border-radius:9px;overflow:hidden}.bar>i{display:block;height:100%;background:var(--pri);transition:width .25s}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;margin:8px 0;padding:12px;border-radius:14px}
+.opt .k{flex:none;width:30px;height:30px;border-radius:50%;background:var(--line);display:grid;place-items:center;font-weight:800}
+.opt[aria-checked="true"]{border-color:var(--pri);background:color-mix(in srgb,var(--pri) 14%,var(--card))}
+.opt[aria-checked="true"] .k{background:var(--pri);color:var(--pri-ink)}
+.opt.right{border-color:var(--ok);background:var(--okbg)}.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.nav{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.nav button{min-width:40px;padding:4px 8px;min-height:38px}
+.nav .cur{border-color:var(--pri);border-width:3px}.nav .done{background:color-mix(in srgb,var(--pri) 20%,var(--card))}
+.pill{padding:3px 11px;border-radius:99px;font-weight:700;font-size:.85rem;display:inline-block}
+.p-ok{background:var(--okbg);color:var(--ok);border:1.5px solid var(--ok)}.p-mid{background:var(--midbg);color:var(--mid);border:1.5px solid var(--mid)}.p-bad{background:var(--badbg);color:var(--bad);border:1.5px solid var(--bad)}
+.score{font-size:3rem;font-weight:800;line-height:1}
+.expl{background:color-mix(in srgb,var(--acc) 10%,var(--card));border-left:5px solid var(--acc);padding:10px 14px;border-radius:10px;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{padding:8px 10px;border-bottom:1.5px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mute)}
+.tw{overflow-x:auto}
+.stat{padding:14px;border-radius:14px;border:1.5px solid var(--line);background:var(--card)}.stat b{font-size:1.6rem;display:block}
+.hbar{display:flex;align-items:center;gap:8px;margin:6px 0}.hbar .t{flex:1;height:14px;background:var(--line);border-radius:8px;overflow:hidden}.hbar .t i{display:block;height:100%;background:var(--bad)}
+.tl{border:2px solid;border-radius:14px;padding:12px;margin:10px 0}
+.tl.ok{border-color:var(--ok)}.tl.mid{border-color:var(--mid)}.tl.bad{border-color:var(--bad)}
+.speech{position:sticky;bottom:8px;z-index:5;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:8px 12px;margin-top:14px;display:none;gap:8px;align-items:center;flex-wrap:wrap;box-shadow:0 4px 16px rgba(0,0,0,.15)}
+.speech.on{display:flex}
+.sr{position:absolute;left:-9999px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:grid;place-items:center;z-index:50;padding:16px}
+.modal>div{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:20px;max-width:440px;width:100%}
+.timer{font-variant-numeric:tabular-nums;font-weight:700}
+.timer.low{color:var(--bad)}
+.err{color:var(--bad);font-weight:600}
+@media (max-width:560px){.score{font-size:2.4rem}.wrap{padding:8px 12px 60px}}
+
+:root{--g1:#2f6fed;--g2:#7a4fe0;--c-diag:#0f9d8a;--c-pre:#e08a00;--c-post:#7a4fe0;--sh:0 6px 22px rgba(47,111,237,.10)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sh:0 6px 22px rgba(0,0,0,.35);--c-diag:#3fd0bb;--c-pre:#f5b13d;--c-post:#a98cff}}
+:root[data-theme="dark"]{--sh:0 6px 22px rgba(0,0,0,.35);--c-diag:#3fd0bb;--c-pre:#f5b13d;--c-post:#a98cff}
+body{background:radial-gradient(1000px 420px at 85% -120px,color-mix(in srgb,var(--g2) 18%,transparent),transparent),radial-gradient(800px 380px at -10% -100px,color-mix(in srgb,var(--g1) 18%,transparent),transparent),var(--bg)}
+header.top{position:sticky;top:0;z-index:20;margin:0 -16px;padding:10px 16px;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);border-bottom:1.5px solid var(--line)}
+.brand{font-size:1.1rem}.brand .logo{width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,var(--g1),var(--g2));display:grid;place-items:center;color:#fff;font-size:1.1rem;box-shadow:var(--sh)}
+.card{box-shadow:var(--sh);border-radius:20px}
+.hero{background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff;border:0;position:relative;overflow:hidden}
+.hero h1,.hero p{color:#fff}.hero .mute{color:rgba(255,255,255,.85)}
+.hero:after{content:"⚡";position:absolute;right:14px;top:-18px;font-size:7rem;opacity:.15}
+.hero label{color:#fff}.hero input{border-color:transparent}
+button.pri{background:linear-gradient(135deg,var(--g1),var(--g2));border:0;color:#fff;box-shadow:var(--sh)}
+html[data-contrast="1"] button.pri{background:var(--pri);color:var(--pri-ink)}
+html[data-contrast="1"] .hero{background:#000;border:2px solid #fff}
+.test{border-width:2px;position:relative;transition:transform .12s}.test:hover{transform:translateY(-2px)}
+.test .ic{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;font-size:1.6rem;margin-bottom:6px;background:color-mix(in srgb,var(--ac) 18%,var(--card))}
+.test[data-k=diag]{--ac:var(--c-diag)}.test[data-k=pre]{--ac:var(--c-pre)}.test[data-k=post]{--ac:var(--c-post)}
+.test.sel{border-color:var(--ac);box-shadow:0 0 0 4px color-mix(in srgb,var(--ac) 28%,transparent)}
+.test.sel:after{content:"✓";position:absolute;right:12px;top:10px;width:26px;height:26px;border-radius:50%;background:var(--ac);color:#fff;display:grid;place-items:center;font-weight:800}
+.chip{display:inline-block;margin-top:8px;font-size:.78rem;padding:2px 9px;border-radius:99px;background:color-mix(in srgb,var(--ac) 16%,var(--card));color:var(--ink)}
+.stat{box-shadow:var(--sh);border-radius:16px;position:relative;overflow:hidden}
+.stat:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--ac,var(--pri))}
+.stat b{font-size:1.9rem}
+.sheetbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:8px}
+.sheet{border:1.5px solid var(--line);border-radius:14px;overflow:auto;max-height:480px;background:var(--card)}
+.sheet table{border-collapse:separate;border-spacing:0;font-size:.9rem;min-width:100%}
+.sheet th{position:sticky;top:0;background:color-mix(in srgb,var(--pri) 12%,var(--card));z-index:2;white-space:nowrap;border-bottom:2px solid var(--line);border-right:1px solid var(--line)}
+.sheet td{border-right:1px solid var(--line);white-space:nowrap}
+.sheet tr:nth-child(even) td{background:color-mix(in srgb,var(--pri) 4%,var(--card))}
+.sheet td:first-child,.sheet th:first-child{position:sticky;left:0;z-index:1;background:var(--card);font-weight:700}
+.sheet th:first-child{z-index:3;background:color-mix(in srgb,var(--pri) 12%,var(--card))}
+.sheet .num{text-align:center;font-variant-numeric:tabular-nums}
+.cell-ok{background:var(--okbg)!important;color:var(--ok);font-weight:700}.cell-mid{background:var(--midbg)!important;color:var(--mid);font-weight:700}.cell-bad{background:var(--badbg)!important;color:var(--bad);font-weight:700}
+.sheet tfoot td{position:sticky;bottom:0;background:color-mix(in srgb,var(--pri) 12%,var(--card))!important;font-weight:700;border-top:2px solid var(--line)}
+.mini{display:inline-block;width:26px;text-align:center}
+.minibars{display:flex;align-items:flex-end;gap:14px;height:150px;padding:6px 4px 0}
+.minibars .b{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.minibars .b i{display:block;width:100%;max-width:70px;border-radius:10px 10px 0 0;background:var(--ac);min-height:3px}
+.minibars .b span{font-size:.85rem;margin-top:4px;text-align:center}.minibars .b b{margin-bottom:3px}
+.sec{display:flex;gap:8px;align-items:center;margin:22px 0 6px;font-size:1.15rem;font-weight:800}
+.sec small{font-weight:500;color:var(--mute);font-size:.85rem}
+.gain{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:12px;padding:12px;border-radius:14px;background:color-mix(in srgb,var(--acc) 10%,var(--card))}
+</style>
+</head>
+<body>
+<a href="#app" class="sr">Lewati ke konten</a>
+<div class="wrap">
+<header class="top" role="banner">
+ <div class="brand"><span class="logo" aria-hidden="true">⚡</span> <span>Kuis Induksi Elektromagnetik</span></div>
+ <div class="tools" role="toolbar" aria-label="Pengaturan aksesibilitas">
+  <button class="small" id="btnContrast" aria-pressed="false" title="Kontras tinggi">◐ Kontras</button>
+  <button class="small" id="fsS" aria-label="Ukuran huruf kecil">A−</button>
+  <button class="small" id="fsN" aria-label="Ukuran huruf normal">A</button>
+  <button class="small" id="fsL" aria-label="Ukuran huruf besar">A+</button>
+  <button class="small" id="btnRole" aria-label="Halaman guru">👩‍🏫 Guru</button>
+ </div>
+</header>
+<main id="app" tabindex="-1" aria-live="polite"></main>
+<div class="speech" id="speech" role="group" aria-label="Kontrol suara">
+ <span aria-hidden="true">🔊</span>
+ <button class="small" id="spPlay">▶ Putar</button>
+ <button class="small" id="spPause">⏸ Jeda</button>
+ <button class="small" id="spStop">⏹ Stop</button>
+ <label for="spRate" style="margin:0;font-weight:500">Kecepatan</label>
+ <select id="spRate" style="width:auto;min-height:36px"><option value="0.7">Lambat</option><option value="0.9" selected>Normal</option><option value="1.15">Cepat</option></select>
+</div>
+</div>
+<script>
+const TESTS={"diag": {"nama": "Tes Diagnostik", "ic": "🔍", "desk": "Cek prasyarat: arus listrik, Hukum Ohm, dan konsep energi.", "menit": 10, "Q": [{"q": "Dalam suatu kawat penghantar, muatan listrik total sebesar 20 Coulomb mengalir selama 4 detik. Besar kuat arus listrik yang mengalir pada kawat tersebut adalah...", "o": ["4 A", "5 A", "8 A", "16 A"], "a": 1, "c": "C2", "i": "Kelistrikan Dasar", "e": "I = Q/t = 20/4 = 5 A."}, {"q": "Sebuah kawat penghantar memiliki hambatan R = 4 Ω. Jika dihubungkan dengan sumber tegangan V = 12 Volt, besar kuat arus listrik yang mengalir adalah...", "o": ["2 A", "3 A", "4 A", "6 A"], "a": 1, "c": "C2", "i": "Kelistrikan Dasar", "e": "Hukum Ohm: I = V/R = 12/4 = 3 A."}, {"q": "Jika hambatan pada suatu rangkaian diperbesar dua kali lipat sementara tegangan tetap, maka kuat arus listrik akan...", "o": ["Menjadi dua kali lebih besar", "Menjadi setengah kali lebih kecil", "Tetap sama", "Menjadi empat kali lebih besar"], "a": 1, "c": "C3", "i": "Kelistrikan Dasar", "e": "Berdasarkan Hukum Ohm, I berbanding terbalik dengan R. Jika R naik 2 kali, I turun menjadi 1/2 kali."}, {"q": "Pada PLTA, air di bendungan memiliki energi potensial. Energi ini diubah menjadi energi kinetik untuk memutar turbin. Alat yang mengubah energi kinetik putaran turbin menjadi energi listrik adalah...", "o": ["Transformator", "Generator", "Galvanometer", "Dinamometer"], "a": 1, "c": "C1", "i": "Konsep Energi", "e": "Generator adalah alat konversi energi mekanik (putaran) menjadi energi listrik."}, {"q": "Perubahan energi utama yang terjadi saat sebuah mobil listrik mengerem (pengereman regeneratif) adalah...", "o": ["Energi kimia menjadi energi listrik", "Energi listrik menjadi energi kinetik", "Energi kinetik menjadi energi listrik", "Energi panas menjadi energi gerak"], "a": 2, "c": "C2", "i": "Konsep Energi", "e": "Motor listrik berbalik fungsi menjadi generator, mengubah energi kinetik menjadi energi listrik."}, {"q": "Alat ukur yang digunakan untuk mendeteksi arus listrik yang sangat kecil dalam percobaan induksi elektromagnetik adalah...", "o": ["Voltmeter", "Amperemeter", "Termometer", "Galvanometer"], "a": 3, "c": "C1", "i": "Induksi Dasar", "e": "Galvanometer mendeteksi arus yang sangat lemah (indikasi awal adanya induksi)."}, {"q": "Kuat arus listrik 0,5 A mengalir dalam suatu rangkaian selama 2 menit. Muatan listrik total yang telah mengalir adalah...", "o": ["1 Coulomb", "6 Coulomb", "60 Coulomb", "120 Coulomb"], "a": 2, "c": "C3", "i": "Kelistrikan Dasar", "e": "Q = I × t = 0,5 × 120 = 60 C (ingat t harus dalam detik)."}, {"q": "Berikut ini yang merupakan contoh perubahan energi mekanik menjadi energi listrik adalah...", "o": ["Menyalakan senter", "Memutar dinamo sepeda", "Menghidupkan kompor induksi", "Mengisi baterai HP"], "a": 1, "c": "C2", "i": "Konsep Energi", "e": "Dinamo sepeda mengubah energi gerak (mekanik) menjadi energi listrik."}, {"q": "Hubungan antara tegangan (V), arus (I), dan hambatan (R) dalam Hukum Ohm dituliskan dengan persamaan...", "o": ["V = I/R", "V = I·R", "V = R/I", "I = V·R"], "a": 1, "c": "C1", "i": "Kelistrikan Dasar", "e": "Hukum Ohm: V = I × R."}, {"q": "Dalam konsep Hukum Kekekalan Energi, energi listrik yang dihasilkan oleh generator PLTA sebenarnya berasal dari...", "o": ["Tercipta dari ketiadaan di dalam generator", "Energi mekanik air yang memutar turbin", "Panas gesekan antara kabel dengan magnet", "Magnet yang terus melemah"], "a": 1, "c": "C2", "i": "Konsep Energi", "e": "Sumber energi listrik adalah energi mekanik air, sesuai Hukum Kekekalan Energi."}]}, "pre": {"nama": "Pretest", "ic": "📝", "desk": "Sebelum materi: fluks magnetik, Hukum Faraday & Lenz.", "menit": 10, "Q": [{"q": "Besaran fisika yang menyatakan jumlah total garis medan magnet yang menembus suatu bidang disebut...", "o": ["Kuat medan magnet", "Fluks magnetik", "Gaya Lorentz", "Induksi magnetik"], "a": 1, "c": "C1", "i": "Fluks Magnetik", "e": "Fluks magnetik: Φ = B·A·cos θ."}, {"q": "Satuan Sistem Internasional (SI) untuk fluks magnetik adalah...", "o": ["Tesla (T)", "Weber (Wb)", "Henry (H)", "Volt (V)"], "a": 1, "c": "C1", "i": "Fluks Magnetik", "e": "Fluks magnetik diukur dalam satuan Weber (Wb)."}, {"q": "Pernyataan yang tepat mengenai timbulnya GGL induksi sesuai Hukum Faraday adalah...", "o": ["GGL timbul karena adanya medan magnet yang diam", "GGL timbul karena adanya perubahan fluks magnetik", "GGL timbul karena adanya perubahan suhu pada kumparan", "GGL timbul karena jumlah lilitan yang sedikit"], "a": 1, "c": "C2", "i": "Hukum Faraday", "e": "Kunci Hukum Faraday adalah adanya laju perubahan fluks magnetik."}, {"q": "Faktor yang dapat memperbesar nilai GGL induksi pada kumparan adalah...", "o": ["Mengurangi jumlah lilitan", "Memperlambat gerakan magnet", "Menggunakan magnet yang lebih lemah", "Mempercepat gerakan magnet"], "a": 3, "c": "C2", "i": "Hukum Faraday", "e": "Gerakan lebih cepat berarti laju perubahan fluks (ΔΦ/Δt) lebih besar, sehingga GGL lebih besar."}, {"q": "Sebuah kumparan memiliki 100 lilitan. Jika fluks magnetik berubah dari 0,02 Wb menjadi 0,06 Wb dalam waktu 0,1 sekon, besar GGL induksi rata-rata yang dihasilkan adalah...", "o": ["40 V", "80 V", "120 V", "160 V"], "a": 0, "c": "C3", "i": "Hukum Faraday", "e": "ε = N·ΔΦ/Δt = 100 × (0,06 − 0,02)/0,1 = 100 × 0,4 = 40 V."}, {"q": "Arah arus induksi selalu menghasilkan medan magnet yang menentang perubahan fluks magnetik penyebabnya. Pernyataan ini merupakan bunyi dari...", "o": ["Hukum Ohm", "Hukum Faraday", "Hukum Lenz", "Hukum Kirchhoff"], "a": 2, "c": "C1", "i": "Hukum Lenz", "e": "Itu adalah definisi Hukum Lenz."}, {"q": "Ketika kutub Utara magnet batang didekatkan ke sebuah kumparan, ujung kumparan yang berhadapan dengan magnet akan menjadi kutub...", "o": ["Utara, karena menolak magnet yang mendekat", "Selatan, karena menolak magnet yang mendekat", "Utara, karena menarik magnet yang mendekat", "Selatan, karena menarik magnet yang mendekat"], "a": 0, "c": "C3", "i": "Hukum Lenz", "e": "Magnet Utara mendekat, fluks bertambah. Kumparan melawan dengan membentuk kutub Utara di ujungnya agar terjadi tolak-menolak."}, {"q": "Pada saat magnet didiamkan di dalam kumparan, jarum galvanometer tidak menyimpang. Hal ini terjadi karena...", "o": ["Magnetnya terlalu lemah", "Tidak ada perubahan fluks magnetik", "Hambatan pada kumparan sangat besar", "Arah arus induksi berbalik-balik"], "a": 1, "c": "C2", "i": "Induksi Dasar", "e": "Magnet diam berarti fluks konstan, tidak ada perubahan fluks, sehingga GGL nol."}, {"q": "Prinsip kerja pengereman regeneratif pada mobil listrik (EV) menerapkan konsep...", "o": ["Perubahan energi listrik menjadi energi gerak", "Hukum Lenz yang menahan putaran roda sekaligus menghasilkan listrik", "Gaya tarik magnet permanen yang tidak bisa diubah", "Perubahan energi kimia menjadi energi panas"], "a": 1, "c": "C3", "i": "Aplikasi", "e": "Gaya lawan sesuai Hukum Lenz memperlambat roda sekaligus menghasilkan listrik untuk mengisi baterai."}, {"q": "Perhatikan pernyataan berikut!\n1. Memperbanyak jumlah lilitan kumparan\n2. Memperbesar luas penampang kumparan\n3. Memperlambat laju perubahan medan magnet\n4. Mengurangi kekuatan medan magnet\nYang merupakan cara untuk memperbesar GGL induksi ditunjukkan oleh nomor...", "o": ["1 dan 2", "1 dan 3", "2 dan 3", "3 dan 4"], "a": 0, "c": "C4", "i": "Hukum Faraday", "e": "Memperbanyak lilitan (N) dan memperbesar luas (A) memperbesar fluks dan GGL. Nomor 3 dan 4 justru memperkecil GGL."}]}, "post": {"nama": "Posttest", "ic": "🏆", "desk": "Setelah materi: fluks, Faraday, Lenz, dan aplikasinya.", "menit": 10, "Q": [{"q": "Fluks magnetik yang menembus suatu bidang dipengaruhi oleh beberapa faktor. Faktor yang memengaruhi besar fluks magnetik adalah...", "o": ["Massa magnet, suhu, dan hambatan kumparan", "Kuat medan magnet, luas bidang, dan sudut antara medan magnet dengan garis normal bidang", "Jumlah baterai, panjang kawat, dan kuat arus listrik", "Hambatan kawat, suhu, dan jumlah elektron"], "a": 1, "c": "C1", "i": "Fluks Magnetik", "e": "Φ = B·A·cos θ: dipengaruhi kuat medan (B), luas bidang (A), dan sudut θ antara medan dengan garis normal bidang."}, {"q": "Sebuah bidang memiliki luas 2 m² dan berada tegak lurus terhadap medan magnet sebesar 0,5 T. Besar fluks magnetik yang menembus bidang tersebut adalah...", "o": ["0,25 Wb", "0,5 Wb", "1 Wb", "2 Wb"], "a": 2, "c": "C2", "i": "Fluks Magnetik", "e": "Bidang tegak lurus medan berarti fluks maksimum. Φ = B·A = 0,5 × 2 = 1 Wb."}, {"q": "Menurut Hukum Faraday, besar GGL induksi yang timbul pada kumparan dipengaruhi oleh...", "o": ["Besarnya hambatan listrik pada kumparan saja", "Laju perubahan fluks magnetik dan jumlah lilitan kumparan", "Massa dan ukuran magnet yang digunakan", "Suhu dan panjang kawat kumparan"], "a": 1, "c": "C1", "i": "Hukum Faraday", "e": "GGL induksi sebanding dengan jumlah lilitan dan laju perubahan fluks magnetik."}, {"q": "Sebuah magnet digerakkan keluar-masuk kumparan sehingga jarum galvanometer menyimpang. Agar GGL induksi yang dihasilkan semakin besar, tindakan yang paling tepat adalah...", "o": ["Menggerakkan magnet lebih cepat keluar-masuk kumparan", "Mendiamkan magnet di dalam kumparan", "Mengurangi jumlah lilitan kumparan", "Menggunakan magnet yang lebih lemah"], "a": 0, "c": "C3", "i": "Hukum Faraday", "e": "Gerakan magnet lebih cepat membuat perubahan fluks berlangsung lebih cepat, sehingga GGL induksi makin besar."}, {"q": "Sebuah kumparan memiliki 200 lilitan. Fluks magnetik pada setiap lilitan berubah dari 0,01 Wb menjadi 0,05 Wb dalam waktu 0,2 sekon. Besar GGL induksi rata-rata yang dihasilkan adalah...", "o": ["20 V", "30 V", "40 V", "50 V"], "a": 2, "c": "C3", "i": "Hukum Faraday", "e": "ε = N·|ΔΦ|/Δt = 200 × (0,05 − 0,01)/0,2 = 40 V."}, {"q": "Ketika sebuah magnet didekatkan pada kumparan, arus induksi muncul dengan arah yang menghasilkan medan magnet untuk menentang perubahan fluks yang terjadi. Fenomena tersebut menunjukkan penerapan...", "o": ["Hukum Newton", "Hukum Ohm", "Hukum Faraday", "Hukum Lenz"], "a": 3, "c": "C1", "i": "Hukum Lenz", "e": "Hukum Lenz: arah arus induksi menghasilkan medan magnet yang menentang perubahan fluks penyebabnya."}, {"q": "Ketika kutub Selatan magnet batang didekatkan ke sebuah kumparan, ujung kumparan yang berhadapan dengan magnet akan menjadi kutub...", "o": ["Selatan, karena menolak magnet yang mendekat", "Utara, karena menolak magnet yang mendekat", "Selatan, karena menarik magnet yang mendekat", "Utara, karena menarik magnet yang mendekat"], "a": 0, "c": "C3", "i": "Hukum Lenz", "e": "Kutub Selatan mendekat membuat fluks bertambah. Kumparan membentuk kutub Selatan di ujung yang berhadapan untuk menolak gerakan mendekat."}, {"q": "Seorang siswa menggerakkan magnet mendekati kumparan dan jarum galvanometer menyimpang ke kanan. Ketika magnet ditarik menjauh, jarum menyimpang ke kiri. Peristiwa tersebut menunjukkan bahwa...", "o": ["Arah arus induksi selalu tetap", "Arah arus induksi berubah ketika arah perubahan fluks magnetik berubah", "Magnet hanya menghasilkan arus ketika didekatkan", "Kumparan menghasilkan arus tanpa adanya perubahan fluks magnetik"], "a": 1, "c": "C3", "i": "Hukum Lenz", "e": "Ketika arah gerakan magnet dibalik, arah perubahan fluks juga berubah, sehingga arah arus induksi berbalik."}, {"q": "Pada PLTA, energi gerak turbin digunakan untuk memutar generator. Prinsip fisika yang memungkinkan generator menghasilkan energi listrik adalah...", "o": ["Perubahan fluks magnetik yang menghasilkan GGL induksi", "Perubahan energi listrik menjadi energi kimia", "Gaya gesek antara turbin dan air menghasilkan arus listrik secara langsung", "Perubahan suhu pada kumparan menghasilkan medan magnet"], "a": 0, "c": "C2", "i": "Aplikasi", "e": "Generator bekerja berdasarkan induksi elektromagnetik: perubahan fluks magnetik menghasilkan GGL induksi."}, {"q": "Perhatikan beberapa cara berikut!\n1. Memperbanyak jumlah lilitan kumparan.\n2. Memperbesar luas penampang kumparan.\n3. Mempercepat perubahan fluks magnetik.\n4. Mengurangi kuat medan magnet yang menembus kumparan.\nCara yang dapat memperbesar GGL induksi ditunjukkan oleh nomor...", "o": ["1, 2, dan 3", "1 dan 4", "2 dan 4", "3 dan 4"], "a": 0, "c": "C4", "i": "Hukum Faraday", "e": "Memperbanyak lilitan, memperbesar luas penampang, dan mempercepat perubahan fluks memperbesar GGL induksi. Mengurangi medan justru memperkecilnya."}]}};
+/* ===== util & storage ===== */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const KEY="kuisIEM_v1", PREF="kuisIEM_pref";
+let mem={results:[],pin:"123456"};
+function dbLoad(){try{const r=localStorage.getItem(KEY);if(r){const d=JSON.parse(r);return{results:d.results||[],pin:d.pin||"123456"}}}catch(e){}return mem}
+function dbSave(d){mem=d;try{localStorage.setItem(KEY,JSON.stringify(d))}catch(e){}}
+const kat=s=>s>=80?"Siap":s>=60?"Cukup":"Perlu Bimbingan";
+const katCls=k=>k==="Siap"?"p-ok":k==="Cukup"?"p-mid":"p-bad";
+const katIc=k=>k==="Siap"?"🟢":k==="Cukup"?"🟡":"🔴";
+const fmtDate=t=>new Date(t).toLocaleString("id-ID",{day:"2-digit",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"});
+const LET=["A","B","C","D"];
+const nk=s=>String(s||"").toLowerCase().replace(/[^a-z0-9]/g,"");
+const pkey=r=>nk(r.nama)+"|"+nk(r.kelas);
+const REK={
+"Konsep Energi":"Ulangi perubahan energi (mekanik ↔ listrik), generator, dan Hukum Kekekalan Energi.",
+"Kelistrikan Dasar":"Ulangi I = Q/t dan Hukum Ohm (V = I·R), termasuk konversi satuan waktu.",
+"Fluks Magnetik":"Pelajari lagi Φ = B·A·cos θ: peran luas, sudut, dan kuat medan.",
+"Induksi Dasar":"Amati simulasi magnet–kumparan (mis. PhET Faraday) dan hubungkan perubahan fluks dengan arus.",
+"Hukum Faraday":"Latih soal ε = −N ΔΦ/Δt dan faktor yang memengaruhi GGL induksi.",
+"Hukum Lenz":"Latih menentukan arah arus induksi: arus selalu melawan perubahan fluks.",
+"Aplikasi":"Pelajari cara kerja generator, dinamo, transformator, dan rem magnetik."};
+
+/* ===== prefs ===== */
+let pref={fs:16,hc:0,rate:.9};
+try{Object.assign(pref,JSON.parse(localStorage.getItem(PREF)||"{}"))}catch(e){}
+function applyPref(){document.documentElement.style.setProperty("--fs",pref.fs+"px");
+ document.documentElement.dataset.contrast=pref.hc?"1":"0";
+ $("#btnContrast").setAttribute("aria-pressed",pref.hc?"true":"false");$("#spRate").value=String(pref.rate);
+ try{localStorage.setItem(PREF,JSON.stringify(pref))}catch(e){}}
+$("#fsS").onclick=()=>{pref.fs=14;applyPref()};$("#fsN").onclick=()=>{pref.fs=16;applyPref()};$("#fsL").onclick=()=>{pref.fs=20;applyPref()};
+$("#btnContrast").onclick=()=>{pref.hc=pref.hc?0:1;applyPref()};
+
+/* ===== speech ===== */
+const TTS="speechSynthesis" in window&&typeof SpeechSynthesisUtterance!=="undefined";
+let lastText="";
+function stopSpeak(){try{TTS&&speechSynthesis.cancel()}catch(e){}}
+function speak(text){
+ if(!TTS){toast("Peramban ini belum mendukung suara.");return}
+ lastText=text;$("#speech").classList.add("on");
+ try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="id-ID";u.rate=pref.rate;
+  const v=speechSynthesis.getVoices().find(v=>/^id/i.test(v.lang));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){toast("Suara tidak dapat diputar.")}}
+$("#spPlay").onclick=()=>{try{if(speechSynthesis.paused)speechSynthesis.resume();else if(lastText)speak(lastText)}catch(e){}};
+$("#spPause").onclick=()=>{try{speechSynthesis.pause()}catch(e){}};
+$("#spStop").onclick=()=>{stopSpeak();$("#speech").classList.remove("on")};
+$("#spRate").onchange=e=>{pref.rate=+e.target.value;applyPref();if(lastText&&TTS&&speechSynthesis.speaking)speak(lastText)};
+function toast(m){const d=document.createElement("div");d.setAttribute("role","status");d.style.cssText="position:fixed;left:50%;bottom:70px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;z-index:99;max-width:90vw";d.textContent=m;document.body.appendChild(d);setTimeout(()=>d.remove(),3500)}
+
+/* ===== modal ===== */
+function modal(html,onMount){const m=document.createElement("div");m.className="modal";m.innerHTML='<div role="dialog" aria-modal="true">'+html+'</div>';
+ document.body.appendChild(m);const close=()=>m.remove();m.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
+ onMount&&onMount(m,close);const f=$("button,input,textarea",m);f&&f.focus();return close}
+function confirmBox(msg,yes,cb,danger){modal(`<p>${msg}</p><div class="row"><button class="pri ${danger?"danger":""}" data-y>${yes}</button><button data-n>Batal</button></div>`,(m,c)=>{$("[data-y]",m).onclick=()=>{c();cb()};$("[data-n]",m).onclick=c})}
+
+/* ===== state ===== */
+let S={view:"home",nama:"",kelas:"",tes:"diag",timer:false,run:null,rec:null,tf:{kelas:"",tes:"",pin:false}};
+const app=$("#app");
+function go(v){S.view=v;stopSpeak();$("#speech").classList.remove("on");clearInterval(S.tick);render();window.scrollTo(0,0);setTimeout(()=>{const h=$("h1",app);if(h){h.tabIndex=-1;h.focus({preventScroll:true})}},30)}
+function render(){({home:vHome,test:vTest,result:vResult,login:vLogin,teacher:vTeacher})[S.view]();
+ $("#btnRole").textContent=S.view==="teacher"||S.view==="login"?"🎒 Siswa":"👩‍🏫 Guru";}
+$("#btnRole").onclick=()=>{if(S.view==="teacher"||S.view==="login"){S.tf.pin=false;go("home")}else go(S.tf.pin?"teacher":"login")};
+
+/* ===== student: home ===== */
+function vHome(){
+ app.innerHTML=`<section class="card hero"><h1>Halo! Siap uji pemahamanmu? 🚀</h1>
+ <p class="mute">Materi: <b>Induksi Elektromagnetik</b> (Hukum Faraday &amp; Hukum Lenz). Tiap tes terdiri dari 10 soal pilihan ganda. Tersedia pembacaan soal dengan suara 🔊.</p>
+ <div class="grid g2"><div><label for="nama">Nama lengkap</label><input id="nama" autocomplete="name" value="${esc(S.nama)}" placeholder="mis. Siti Aminah"></div>
+ <div><label for="kelas">Kelas</label><input id="kelas" value="${esc(S.kelas)}" placeholder="mis. XI-1"></div></div></section>
+ <section class="card"><h2 id="pt">Pilih tes</h2><div class="grid g3" role="radiogroup" aria-labelledby="pt">
+ ${Object.entries(TESTS).map(([k,t])=>`<button class="test ${S.tes===k?"sel":""}" role="radio" aria-checked="${S.tes===k}" data-k="${k}"><span class="ic" aria-hidden="true">${t.ic}</span><h3>${t.nama}</h3><span class="mute">${t.desk}</span><br><span class="chip">10 soal · ${t.menit} menit</span></button>`).join("")}</div>
+ <label style="display:flex;gap:10px;align-items:center;margin-top:14px;font-weight:500"><input type="checkbox" id="timer" style="width:22px;min-height:22px" ${S.timer?"checked":""}> Pakai timer (opsional, ${TESTS[S.tes].menit} menit)</label>
+ <p class="err" id="msg" role="alert"></p><button class="pri" id="mulai" style="width:100%;font-size:1.1rem;min-height:52px">Mulai Tes ▶</button>
+ <p class="mute" style="font-size:.85rem;margin-bottom:0">Tips keyboard: ←/→ pindah soal, ↑/↓ pindah pilihan, Enter atau huruf A–D untuk memilih.</p></section>`;
+ $$("[data-k]").forEach(b=>b.onclick=()=>{S.nama=$("#nama").value;S.kelas=$("#kelas").value;S.timer=$("#timer").checked;S.tes=b.dataset.k;vHome()});
+ $("#mulai").onclick=()=>{S.nama=$("#nama").value.trim();S.kelas=$("#kelas").value.trim().toUpperCase();S.timer=$("#timer").checked;
+  if(S.nama.length<2||!S.kelas){$("#msg").textContent="Isi nama dan kelas terlebih dahulu ya.";(S.nama.length<2?$("#nama"):$("#kelas")).focus();return}
+  startTest()}}
+
+/* ===== student: test ===== */
+function startTest(){const t=TESTS[S.tes];
+ S.run={i:0,ans:Array(t.Q.length).fill(-1),perm:t.Q.map(q=>shuffle([0,1,2,3])),left:t.menit*60};
+ if(S.timer){S.tick=setInterval(()=>{S.run.left--;const el=$("#tm");if(el){el.textContent=mmss(S.run.left);el.classList.toggle("low",S.run.left<60)}
+  if(S.run.left<=0){clearInterval(S.tick);finish(true)}},1000)}
+ go("test")}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+const mmss=s=>String(Math.floor(Math.max(s,0)/60)).padStart(2,"0")+":"+String(Math.max(s,0)%60).padStart(2,"0");
+function qText(i){const t=TESTS[S.tes],q=t.Q[i],p=S.run.perm[i];
+ return`Soal nomor ${i+1}. ${q.q} `+p.map((oi,k)=>`Pilihan ${LET[k]}. ${q.o[oi]}.`).join(" ")}
+function vTest(){const t=TESTS[S.tes],r=S.run,n=t.Q.length;
+ app.innerHTML=`<section class="card"><div class="row sp"><h1 style="font-size:1.2rem">${t.ic} ${t.nama}</h1>${S.timer?`<span class="timer" id="tm" aria-label="Sisa waktu">${mmss(r.left)}</span>`:""}</div>
+ <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="${n}" aria-valuenow="${r.ans.filter(x=>x>=0).length}" aria-label="Soal terjawab"><i style="width:${r.ans.filter(x=>x>=0).length/n*100}%"></i></div>
+ <nav class="nav" aria-label="Navigasi soal">${t.Q.map((_,k)=>`<button data-n="${k}" class="${k===r.i?"cur":""} ${r.ans[k]>=0?"done":""}" aria-label="Soal ${k+1}${r.ans[k]>=0?", sudah dijawab":""}" ${k===r.i?'aria-current="step"':""}>${k+1}</button>`).join("")}</nav></section>
+ <section class="card" aria-labelledby="qq"><div class="row sp"><span class="tag">Soal ${r.i+1}/${n}</span><span class="tag">${t.Q[r.i].c} · ${t.Q[r.i].i}</span></div>
+ <h2 id="qq" style="margin-top:12px;font-weight:600;white-space:pre-line">${esc(t.Q[r.i].q)}</h2>
+ <div role="radiogroup" aria-labelledby="qq">${r.perm[r.i].map((oi,k)=>`<button class="opt" role="radio" aria-checked="${r.ans[r.i]===oi}" data-o="${oi}" aria-label="Pilihan ${LET[k]}: ${esc(t.Q[r.i].o[oi])}"><span class="k" aria-hidden="true">${LET[k]}</span><span>${esc(t.Q[r.i].o[oi])}</span></button>`).join("")}</div>
+ <div class="row sp" style="margin-top:14px"><button id="bc">🔊 Bacakan Soal</button><div class="row"><button id="pv" ${r.i===0?"disabled":""}>◀ Sebelumnya</button>${r.i<n-1?`<button class="pri" id="nx">Berikutnya ▶</button>`:`<button class="pri" id="fin">Selesai ✔</button>`}</div></div></section>`;
+ $$("[data-n]").forEach(b=>b.onclick=()=>{r.i=+b.dataset.n;stopSpeak();vTest();$("#qq").scrollIntoView({block:"nearest"})});
+ $$("[data-o]").forEach(b=>b.onclick=()=>pick(+b.dataset.o));
+ $("#bc").onclick=()=>speak(qText(r.i));
+ $("#pv").onclick=()=>{if(r.i>0){r.i--;stopSpeak();vTest()}};
+ const nx=$("#nx");if(nx)nx.onclick=()=>{r.i++;stopSpeak();vTest()};
+ const fin=$("#fin");if(fin)fin.onclick=()=>finish(false)}
+function pick(oi){const r=S.run;r.ans[r.i]=oi;$$("[data-o]").forEach(b=>b.setAttribute("aria-checked",String(+b.dataset.o===oi)));
+ const nb=$(`[data-n="${r.i}"]`);nb.classList.add("done");const c=r.ans.filter(x=>x>=0).length,n=r.ans.length;
+ const pb=$(".bar");pb.setAttribute("aria-valuenow",c);$("i",pb).style.width=c/n*100+"%"}
+document.addEventListener("keydown",e=>{
+ if(S.view!=="test"||document.querySelector(".modal")||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;
+ const r=S.run,n=r.ans.length;
+ if(e.key==="ArrowRight"&&r.i<n-1){r.i++;stopSpeak();vTest();e.preventDefault()}
+ else if(e.key==="ArrowLeft"&&r.i>0){r.i--;stopSpeak();vTest();e.preventDefault()}
+ else if(e.key==="ArrowDown"||e.key==="ArrowUp"){const o=$$("[data-o]"),k=o.indexOf(document.activeElement);const nk=e.key==="ArrowDown"?(k+1)%4:(k<=0?3:k-1);o[nk].focus();e.preventDefault()}
+ else if(/^[a-dA-D1-4]$/.test(e.key)){const k=isNaN(e.key)?LET.indexOf(e.key.toUpperCase()):+e.key-1;const b=$$("[data-o]")[k];if(b){pick(+b.dataset.o);b.focus()}}
+});
+function finish(auto){const r=S.run,un=r.ans.filter(x=>x<0).length;
+ const go2=()=>{clearInterval(S.tick);const t=TESTS[S.tes];const benar=t.Q.filter((q,i)=>r.ans[i]===q.a).length;const skor=benar*10;
+  const rec={id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),nama:S.nama,kelas:S.kelas,jenisTes:S.tes,jawaban:r.ans.slice(),skor,tanggal:new Date().toISOString(),kategori:kat(skor)};
+  const d=dbLoad();const ex=d.results.find(x=>pkey(x)===pkey(rec));if(ex){rec.nama=ex.nama;rec.kelas=ex.kelas}d.results.push(rec);dbSave(d);S.rec=rec;go("result")};
+ if(auto){document.querySelector(".modal")&&$(".modal").remove();go2();return}
+ if(un>0)confirmBox(`Masih ada <b>${un}</b> soal belum dijawab. Tetap selesaikan?`,"Ya, selesai",go2);else go2()}
+/* ===== result ===== */
+function latest(rs,tk){return rs.filter(r=>r.jenisTes===tk).sort((a,b)=>b.tanggal.localeCompare(a.tanggal))[0]}
+function ngain(pre,post){return pre>=100?null:Math.round((post-pre)/(100-pre)*100)/100}
+const ngLabel=g=>g===null?"–":g>=.7?"Tinggi":g>=.3?"Sedang":"Rendah";
+function progress(rec){const mine=dbLoad().results.filter(r=>pkey(r)===pkey(rec));const pre=latest(mine,"pre"),post=latest(mine,"post");
+ if(!pre||!post)return"";const g=ngain(pre.skor,post.skor);
+ return`<div class="gain"><span>📈 Perkembanganmu:</span><b>Pretest ${pre.skor}</b><span>→</span><b>Posttest ${post.skor}</b><span class="pill ${post.skor>=pre.skor?"p-ok":"p-mid"}">${post.skor-pre.skor>=0?"+":""}${post.skor-pre.skor} poin${g===null?"":" · N-Gain "+g+" ("+ngLabel(g)+")"}</span></div>`}
+function indStats(tk,ans){const o={};TESTS[tk].Q.forEach((q,i)=>{o[q.i]=o[q.i]||{b:0,n:0};o[q.i].n++;if(ans[i]===q.a)o[q.i].b++});return o}
+function weak(tk,ans){const st=indStats(tk,ans);return Object.entries(st).filter(([k,v])=>v.b/v.n<.6).map(([k])=>k)}
+function vResult(){const rec=S.rec,t=TESTS[rec.jenisTes],st=indStats(rec.jenisTes,rec.jawaban),wk=weak(rec.jenisTes,rec.jawaban),benar=rec.skor/10;
+ const rek=rec.kategori==="Siap"?"Hebat! Kamu siap lanjut. Coba soal pengayaan (HOTS) atau jelaskan konsepnya ke temanmu."
+  :rec.kategori==="Cukup"?"Kamu sudah cukup baik. Perkuat indikator yang masih lemah lewat latihan tambahan."
+  :"Jangan khawatir! Ikuti bimbingan guru dan pelajari ulang materi di bawah ini, lalu coba lagi.";
+ app.innerHTML=`<section class="card" style="text-align:center"><h1>Hasil ${t.nama}</h1><p class="mute">${esc(rec.nama)} · ${esc(rec.kelas)}</p>
+ <div class="score" aria-label="Skor ${rec.skor} dari 100">${rec.skor}<span style="font-size:1.2rem" class="mute">/100</span></div>
+ <p>${benar} dari ${t.Q.length} soal benar (${rec.skor}%)</p><span class="pill ${katCls(rec.kategori)}">${katIc(rec.kategori)} ${rec.kategori}</span>
+ <p style="margin-top:12px">${rek}</p>${progress(rec)}<div class="row" style="justify-content:center"><button id="bh">🔊 Bacakan Hasil</button><button id="bp">🔊 Bacakan Pembahasan</button></div></section>
+ <section class="card"><h2>Ketuntasan per indikator</h2>${Object.entries(st).map(([k,v])=>{const p=Math.round(v.b/v.n*100);return`<div class="hbar"><span style="width:150px">${esc(k)}</span><div class="t"><i style="width:${p}%;background:${p>=60?"var(--ok)":"var(--bad)"}"></i></div><span>${v.b}/${v.n}</span></div>`}).join("")}</section>
+ <section class="card"><h2>Rekomendasi tindak lanjut</h2>${wk.length?`<ul>${wk.map(k=>`<li><b>${esc(k)}</b>: ${esc(REK[k])}</li>`).join("")}</ul>`:`<p>Semua indikator sudah baik. 🎉</p>`}</section>
+ <section class="card"><div class="row sp"><h2 style="margin:0">Pembahasan soal</h2><div class="row"><button class="small" id="bw">🔊 Bacakan pembahasan soal yang salah</button><button class="small" id="fo" aria-pressed="false">Hanya yang salah</button></div></div>
+ <p class="mute">Soal yang salah langsung dibuka pembahasannya. Soal yang benar bisa dibuka kalau ingin membaca.</p>
+ ${t.Q.map((q,i)=>{const a=rec.jawaban[i],ok=a===q.a;const body=`<div class="expl"><b>Jawaban benar: ${LET[q.a]}. ${esc(q.o[q.a])}</b><br><b>Pembahasan:</b> ${esc(q.e)}</div><button class="small" data-pb="${i}" style="margin-top:8px">🔊 Bacakan Pembahasan</button>`;
+ return`<article data-ok="${ok?1:0}" style="margin:14px 0;padding-bottom:12px;border-bottom:1.5px solid var(--line)"><div class="row sp"><b>Soal ${i+1}</b><span class="row"><span class="tag">${q.c} · ${q.i}</span><span class="pill ${ok?"p-ok":"p-bad"}">${ok?"✔ Benar":a<0?"✘ Tidak dijawab":"✘ Salah"}</span></span></div><p style="margin:6px 0;white-space:pre-line">${esc(q.q)}</p>
+ ${q.o.map((o,k)=>`<div class="opt ${k===q.a?"right":k===a?"wrong":""}" style="cursor:default;margin:4px 0"><span class="k">${LET[k]}</span><span>${esc(o)}${k===q.a?" ✔ (kunci)":k===a?" ✘ (jawabanmu)":""}</span></div>`).join("")}
+ ${ok?`<details style="margin-top:8px"><summary style="cursor:pointer;font-weight:600">Lihat pembahasan</summary>${body}</details>`:body}</article>`}).join("")}</section>
+ <div class="row"><button class="pri" id="ulang">↻ Tes lagi</button></div>`;
+ $("#bh").onclick=()=>speak(`Hasil ${t.nama} untuk ${rec.nama}. Skor ${rec.skor} dari 100. ${benar} soal benar dari ${t.Q.length}. Kategori ${rec.kategori}. ${rek} `+(wk.length?"Indikator yang perlu dipelajari: "+wk.join(", ")+".":"Semua indikator sudah baik."));
+ const pemb=i=>{const q=t.Q[i],a=rec.jawaban[i];return`Soal ${i+1}. Jawaban kamu ${a<0?"kosong":a===q.a?"benar":"salah"}. Jawaban yang benar adalah ${LET[q.a]}, ${q.o[q.a]}. Pembahasan: ${q.e}`};
+ $("#bp").onclick=()=>speak(t.Q.map((_,i)=>pemb(i)).join(" "));
+ $$("[data-pb]").forEach(b=>b.onclick=()=>speak(pemb(+b.dataset.pb)));
+ $("#bw").onclick=()=>{const w=t.Q.map((q,i)=>i).filter(i=>rec.jawaban[i]!==t.Q[i].a);speak(w.length?w.map(i=>pemb(i)).join(" "):"Semua jawabanmu benar. Hebat!")};
+ $("#fo").onclick=e=>{const on=e.target.getAttribute("aria-pressed")!=="true";e.target.setAttribute("aria-pressed",String(on));e.target.textContent=on?"Tampilkan semua":"Hanya yang salah";$$("article[data-ok]").forEach(a=>a.style.display=on&&a.dataset.ok==="1"?"none":"")};
+ $("#ulang").onclick=()=>go("home")}
+
+/* ===== teacher ===== */
+function vLogin(){app.innerHTML=`<section class="card" style="max-width:420px;margin:20px auto"><h1>Halaman Guru 👩‍🏫</h1><p class="mute">Masukkan PIN 6 digit.</p>
+ <label for="pin">PIN</label><input id="pin" type="password" inputmode="numeric" maxlength="6" autocomplete="off" aria-describedby="pe"><p id="pe" class="err" role="alert"></p>
+ <button class="pri" id="ok" style="width:100%">Masuk</button><p class="mute" style="font-size:.85rem">PIN bawaan: 123456 (dapat diganti setelah masuk).</p></section>`;
+ const t=()=>{if($("#pin").value===dbLoad().pin){S.tf.pin=true;go("teacher")}else{$("#pe").textContent="PIN salah.";$("#pin").select()}};
+ $("#ok").onclick=t;$("#pin").onkeydown=e=>{if(e.key==="Enter")t()}}
+function filtered(){const d=dbLoad();return d.results.filter(r=>(!S.tf.kelas||r.kelas===S.tf.kelas)&&(!S.tf.tes||r.jenisTes===S.tf.tes)).sort((a,b)=>b.tanggal.localeCompare(a.tanggal))}
+const avg=a=>a.length?Math.round(a.reduce((x,y)=>x+y,0)/a.length*10)/10:"–";
+function people(rs){const m=new Map();rs.forEach(r=>{const k=pkey(r);if(!m.has(k))m.set(k,{k,nama:r.nama,kelas:r.kelas,all:[]});m.get(k).all.push(r)});
+ return[...m.values()].map(p=>{p.diag=latest(p.all,"diag");p.pre=latest(p.all,"pre");p.post=latest(p.all,"post");
+  p.fin=p.post||p.pre||p.diag;p.g=(p.pre&&p.post)?ngain(p.pre.skor,p.post.skor):undefined;return p}).sort((a,b)=>(a.kelas+a.nama).localeCompare(b.kelas+b.nama))}
+const cellCls=s=>s>=80?"cell-ok":s>=60?"cell-mid":"cell-bad";
+const sc=r=>r?`<td class="num ${cellCls(r.skor)}">${r.skor}</td>`:`<td class="num mute">–</td>`;
+function vTeacher(){const all=dbLoad().results,rs=filtered(),kelasList=[...new Set(all.map(r=>r.kelas))].sort();
+ const pp=people(all.filter(r=>!S.tf.kelas||r.kelas===S.tf.kelas));
+ const av=k=>avg(pp.filter(p=>p[k]).map(p=>p[k].skor));
+ const gs=pp.filter(p=>typeof p.g==="number").map(p=>p.g);
+ const siap=pp.filter(p=>p.fin&&p.fin.skor>=80).length,belum=pp.filter(p=>p.fin&&p.fin.skor<80).length;
+ const grp={Siap:[],Cukup:[],"Perlu Bimbingan":[]};pp.forEach(p=>p.fin&&grp[p.fin.kategori].push(p));
+ const itemTk=S.tf.tes||"post";const ipp=pp.filter(p=>p[itemTk]);
+ const ia=TESTS[itemTk].Q.map((q,i)=>{const n=ipp.length,salah=ipp.filter(p=>p[itemTk].jawaban[i]!==q.a).length;return{i,q,n,salah,p:n?Math.round(salah/n*100):0}});
+ const top=ia.filter(o=>o.salah).sort((a,b)=>b.p-a.p).slice(0,5);
+ const bars=[["diag","Diagnostik"],["pre","Pretest"],["post","Posttest"]];
+ app.innerHTML=`<section class="card hero"><h1>Dasbor Guru</h1><p class="mute" style="margin:0">Siswa dengan nama + kelas yang sama otomatis digabung menjadi satu orang. Nilai yang dipakai adalah pengerjaan terbaru tiap jenis tes.</p></section>
+ <section class="card"><div class="grid g2"><div><label for="fk">Kelas</label><select id="fk"><option value="">Semua kelas</option>${kelasList.map(k=>`<option ${S.tf.kelas===k?"selected":""}>${esc(k)}</option>`).join("")}</select></div>
+ <div><label for="ft">Jenis tes (riwayat &amp; analisis butir)</label><select id="ft"><option value="">Semua tes (butir: Posttest)</option>${Object.entries(TESTS).map(([k,t])=>`<option value="${k}" ${S.tf.tes===k?"selected":""}>${t.nama}</option>`).join("")}</select></div></div></section>
+ <section class="grid g3" style="margin-top:12px"><div class="stat"><span class="mute">👥 Jumlah siswa</span><b>${pp.length}</b><span class="mute">${rs.length} pengerjaan</span></div>
+ <div class="stat" style="--ac:var(--ok)"><span class="mute">🟢 Siap (≥80)</span><b>${siap}</b><span class="mute">dari hasil terakhir</span></div>
+ <div class="stat" style="--ac:var(--bad)"><span class="mute">Belum siap (&lt;80)</span><b>${belum}</b><span class="mute">dari hasil terakhir</span></div>
+ <div class="stat" style="--ac:var(--acc)"><span class="mute">📈 Rata-rata N-Gain</span><b>${gs.length?avg(gs):"–"}</b><span class="mute">${gs.length?ngLabel(avg(gs))+" · "+gs.length+" siswa pre &amp; post":"butuh pretest &amp; posttest"}</span></div></section>
+ <section class="card"><h2>Rata-rata skor per tes</h2><div class="minibars">${bars.map(([k,n])=>{const v=av(k),c=pp.filter(p=>p[k]).length;return`<div class="b" style="--ac:var(--c-${k})"><b>${v}</b><i style="height:${v==="–"?0:v}%"></i><span>${n}<br><small class="mute">${c} siswa</small></span></div>`}).join("")}</div></section>
+ <div class="sec">📊 Rekap per siswa <small>(spreadsheet)</small></div>
+ <section class="card"><div class="sheetbar"><span class="mute">Skor terbaru tiap tes · N-Gain = (Post − Pre)/(100 − Pre)</span><div class="row"><button class="small" id="cpr">📋 Salin</button><button class="small" id="csr">⬇ CSV</button></div></div>
+ <div class="sheet"><table><thead><tr><th>Nama</th><th>Kelas</th><th>Diagnostik</th><th>Pretest</th><th>Posttest</th><th>Selisih</th><th>N-Gain</th><th>Kategori N-Gain</th><th>Status akhir</th><th>Pengerjaan</th></tr></thead><tbody>
+ ${pp.length?pp.map(p=>`<tr><td>${esc(p.nama)}</td><td>${esc(p.kelas)}</td>${sc(p.diag)}${sc(p.pre)}${sc(p.post)}<td class="num">${p.pre&&p.post?(p.post.skor-p.pre.skor>=0?"+":"")+(p.post.skor-p.pre.skor):"–"}</td><td class="num">${typeof p.g==="number"?p.g:"–"}</td><td class="num">${typeof p.g==="number"?ngLabel(p.g):"–"}</td><td>${p.fin?`<span class="pill ${katCls(p.fin.kategori)}">${katIc(p.fin.kategori)} ${p.fin.kategori}</span>`:"–"}</td><td class="num">${p.all.length}×</td></tr>`).join(""):`<tr><td colspan="10" class="mute">Belum ada siswa yang mengerjakan.</td></tr>`}</tbody>
+ <tfoot><tr><td>Rata-rata</td><td></td><td class="num">${av("diag")}</td><td class="num">${av("pre")}</td><td class="num">${av("post")}</td><td class="num">${(()=>{const x=pp.filter(p=>p.pre&&p.post).map(p=>p.post.skor-p.pre.skor);return x.length?avg(x):"–"})()}</td><td class="num">${gs.length?avg(gs):"–"}</td><td></td><td></td><td></td></tr></tfoot></table></div></section>
+ <div class="sec">🧮 Matriks jawaban &amp; analisis butir <small>— ${TESTS[itemTk].nama}</small></div>
+ <section class="card"><p class="mute">✓ benar, ✗ salah, – kosong. Baris bawah = persentase siswa yang salah tiap soal.</p>
+ <div class="sheet"><table><thead><tr><th>Nama</th><th>Kelas</th>${ia.map(o=>`<th class="num" title="${esc(o.q.i)} (${o.q.c})">${o.i+1}</th>`).join("")}<th>Skor</th></tr></thead><tbody>
+ ${ipp.length?ipp.map(p=>`<tr><td>${esc(p.nama)}</td><td>${esc(p.kelas)}</td>${p[itemTk].jawaban.map((a,i)=>{const q=TESTS[itemTk].Q[i];return a<0?`<td class="num mute">–</td>`:a===q.a?`<td class="num cell-ok">✓</td>`:`<td class="num cell-bad">✗</td>`}).join("")}<td class="num">${p[itemTk].skor}</td></tr>`).join(""):`<tr><td colspan="13" class="mute">Belum ada data untuk tes ini.</td></tr>`}</tbody>
+ <tfoot><tr><td>% salah</td><td></td>${ia.map(o=>`<td class="num ${o.p>=50?"cell-bad":""}">${o.n?o.p+"%":"–"}</td>`).join("")}<td></td></tr></tfoot></table></div>
+ ${top.length?`<h3 style="margin-top:14px">Soal paling banyak salah</h3><ol>${top.map(o=>`<li><b>Soal ${o.i+1}</b> (${o.q.c} · ${esc(o.q.i)}) — ${o.p}% salah. <span class="mute">${esc(o.q.q.split("\n")[0])}</span></li>`).join("")}</ol>`:""}</section>
+ <div class="sec">🎯 Panel Tindak Lanjut <small>berdasarkan hasil terakhir tiap siswa</small></div>
+ <section class="card"><div class="tl ok"><h3>🟢 Siap/Mahir (≥80) → Pengayaan</h3><p>${grp.Siap.length?grp.Siap.map(p=>esc(p.nama)+" ("+esc(p.kelas)+")").join(", "):"–"}</p><p class="mute">Beri soal HOTS, proyek mini (mis. rancang dinamo sederhana), atau jadikan tutor sebaya.</p></div>
+ <div class="tl mid"><h3>🟡 Cukup (60–79) → Latihan tambahan</h3>${grp.Cukup.length?grp.Cukup.map(p=>`<p style="margin:4px 0"><b>${esc(p.nama)}</b> (${esc(p.kelas)}) — lemah: ${weak(p.fin.jenisTes,p.fin.jawaban).join(", ")||"tidak ada indikator &lt;60%"}</p>`).join(""):"<p>–</p>"}</div>
+ <div class="tl bad"><h3>🔴 Perlu Bimbingan (&lt;60) → Remedial &amp; materi ulang</h3>${grp["Perlu Bimbingan"].length?grp["Perlu Bimbingan"].map(p=>`<p style="margin:4px 0"><b>${esc(p.nama)}</b> (${esc(p.kelas)}) — ulangi: ${weak(p.fin.jenisTes,p.fin.jawaban).join(", ")||"semua indikator"}</p>`).join(""):"<p>–</p>"}</div></section>
+ <div class="sec">🕘 Riwayat pengerjaan</div>
+ <section class="card"><div class="sheet"><table><thead><tr><th>Nama</th><th>Kelas</th><th>Tes</th><th>Skor</th><th>Tanggal</th><th>Status</th></tr></thead><tbody>
+ ${rs.length?rs.map(r=>`<tr><td>${esc(r.nama)}</td><td>${esc(r.kelas)}</td><td>${TESTS[r.jenisTes].nama}</td>${`<td class="num ${cellCls(r.skor)}">${r.skor}</td>`}<td>${fmtDate(r.tanggal)}</td><td><span class="pill ${katCls(r.kategori)}">${katIc(r.kategori)} ${r.kategori}</span></td></tr>`).join(""):`<tr><td colspan="6" class="mute">Belum ada data.</td></tr>`}</tbody></table></div></section>
+ <section class="card"><h2>Pengaturan</h2><div class="row"><button id="csv">⬇ Ekspor riwayat (CSV)</button><button id="pinb">🔑 Ganti PIN</button><button class="danger" id="rst">🗑 Reset data</button></div><p class="mute" style="font-size:.85rem">Data tersimpan di peramban perangkat ini (localStorage), sehingga dasbor hanya menampilkan hasil dari perangkat/peramban yang sama.</p></section>`;
+ $("#fk").onchange=e=>{S.tf.kelas=e.target.value;vTeacher()};$("#ft").onchange=e=>{S.tf.tes=e.target.value;vTeacher()};
+ const rekap=()=>{const q=v=>'"'+String(v).replace(/"/g,'""')+'"';const h=["Nama","Kelas","Diagnostik","Pretest","Posttest","Selisih","N-Gain","Kategori N-Gain","Status akhir","Jumlah pengerjaan"];
+  return{h,rows:pp.map(p=>[p.nama,p.kelas,p.diag?p.diag.skor:"",p.pre?p.pre.skor:"",p.post?p.post.skor:"",p.pre&&p.post?p.post.skor-p.pre.skor:"",typeof p.g==="number"?p.g:"",typeof p.g==="number"?ngLabel(p.g):"",p.fin?p.fin.kategori:"",p.all.length]),q}};
+ $("#csr").onclick=()=>{const r=rekap();csvModal("Ekspor rekap per siswa",[r.h.map(r.q).join(",")].concat(r.rows.map(x=>x.map(r.q).join(","))).join("\n"),"rekap_siswa_induksi.csv")};
+ $("#cpr").onclick=()=>{const r=rekap();csvModal("Salin ke spreadsheet (tab-delimited)",[r.h.join("\t")].concat(r.rows.map(x=>x.join("\t"))).join("\n"),"rekap_siswa_induksi.tsv")};
+ $("#csv").onclick=()=>exportCsv(rs);
+ $("#rst").onclick=()=>confirmBox("Hapus <b>semua</b> data hasil siswa? Tindakan ini tidak dapat dibatalkan.","Ya, hapus",()=>{const d=dbLoad();d.results=[];dbSave(d);vTeacher()},true);
+ $("#pinb").onclick=()=>modal(`<h2>Ganti PIN</h2><label for="np">PIN baru (6 digit)</label><input id="np" type="password" inputmode="numeric" maxlength="6"><p class="err" id="ne" role="alert"></p><div class="row"><button class="pri" id="sv">Simpan</button><button id="bt">Batal</button></div>`,(m,c)=>{
+  $("#bt",m).onclick=c;$("#sv",m).onclick=()=>{const v=$("#np",m).value;if(!/^\d{6}$/.test(v)){$("#ne",m).textContent="PIN harus 6 digit angka.";return}const d=dbLoad();d.pin=v;dbSave(d);c();toast("PIN diganti.")}})}
+function csvModal(title,text,fname){
+ modal(`<h2>${esc(title)}</h2><p class="mute">Salin teks di bawah lalu tempel ke Excel / Google Sheets.</p><textarea id="ct" rows="8" readonly style="font-family:monospace;font-size:.8rem">${esc(text)}</textarea><div class="row" style="margin-top:10px"><button class="pri" id="cp">Salin</button><button id="dl">Unduh</button><button id="cl">Tutup</button></div>`,(m,c)=>{
+  $("#cl",m).onclick=c;$("#cp",m).onclick=()=>{const t=$("#ct",m);t.select();let ok=false;try{ok=document.execCommand("copy")}catch(e){}toast(ok?"Tersalin. Tempel di spreadsheet.":"Tekan Ctrl+C untuk menyalin.")};
+  $("#dl",m).onclick=()=>{try{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["﻿"+text],{type:"text/plain"}));a.download=fname;document.body.appendChild(a);a.click();a.remove()}catch(e){toast("Unduhan tidak tersedia. Gunakan Salin.")}}})}
+function exportCsv(rs){const q=v=>'"'+String(v).replace(/"/g,'""')+'"';
+ const head=["id","nama","kelas","jenisTes","skor","kategori","tanggal","jawaban"];
+ csvModal("Ekspor riwayat",[head.join(",")].concat(rs.map(r=>[r.id,r.nama,r.kelas,TESTS[r.jenisTes].nama,r.skor,r.kategori,r.tanggal,r.jawaban.map(a=>a<0?"-":LET[a]).join("")].map(q).join(","))).join("\n"),"hasil_kuis_induksi.csv")}
+applyPref();render();
+try{speechSynthesis.getVoices()}catch(e){}
+</script></body></html>
+
+</body></html>
